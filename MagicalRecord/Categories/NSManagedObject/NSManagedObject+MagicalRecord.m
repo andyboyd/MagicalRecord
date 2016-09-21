@@ -51,7 +51,8 @@ static NSUInteger kMagicalRecordDefaultBatchSize = 20;
 
         NSError *error = nil;
         
-        results = [context executeFetchRequest:request error:&error];
+        // This copy is a workaround for a strange bug on iOS 10 where the contents of results was sometimes being corrupted somehow when exiting the block
+        results = [[context executeFetchRequest:request error:&error] copy];
         
         if (results == nil) 
         {
