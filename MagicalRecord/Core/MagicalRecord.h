@@ -34,6 +34,8 @@
 
 #ifdef NS_BLOCKS_AVAILABLE
 
+#import <CoreData/CoreData.h>
+
 @class NSManagedObjectContext;
 typedef void (^CoreDataBlock)(NSManagedObjectContext *context);
 
